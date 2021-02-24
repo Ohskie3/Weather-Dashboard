@@ -1,3 +1,6 @@
+
+document.getElementById('cityList').value = localStorage.getItem('savedCities').value
+
 document.getElementById('searchBtn').addEventListener('click', event => {
     event.preventDefault()
     
@@ -8,6 +11,11 @@ document.getElementById('searchBtn').addEventListener('click', event => {
       .then(res => {
           let location = res.data
           console.log(location)
+
+          let cityElem = document.createElement('li')
+          cityElem.className = 'list-group-item'
+          cityElem.textContent = document.getElementById('search').value
+          document.getElementById('cityList').append(cityElem)
 
           document.getElementById('currentCity').innerHTML = `
             <h2>${location.city.name} (2/23/2021) <img src="${location.list[0].weather[0].icon}"></h2>
@@ -21,38 +29,41 @@ document.getElementById('searchBtn').addEventListener('click', event => {
           <h2>5-Day Forecast:</h2>
           <div id="currentForecast">
           <p>3/24/2021</p>
-          <img src="${location.list[3].weather[0].icon} alt="${location.list[3].weather[0].description}">
           <p>Temp: ${location.list[3].main.temp} °F</p>
           <p>Humidity: ${location.list[3].main.humidity}%<p/>
           </div>
           <div id="currentForecast">
           <p>3/25/2021</p>
-          <img src="${location.list[11].weather[0].icon} alt="${location.list[3].weather[0].description}">
+          
           <p>Temp: ${location.list[11].main.temp} °F</p>
           <p>Humidity: ${location.list[11].main.humidity}%<p/>
           </div>
           <div id="currentForecast">
           <p>3/26/2021</p>
-          <img src="${location.list[19].weather[0].icon} alt="${location.list[3].weather[0].description}">
+          
           <p>Temp: ${location.list[19].main.temp} °F</p>
           <p>Humidity: ${location.list[19].main.humidity}%<p/>
           </div>
           <div id="currentForecast">
           <p>3/27/2021</p>
-          <img src="${location.list[27].weather[0].icon} alt="${location.list[3].weather[0].description}">
+          
           <p>Temp: ${location.list[27].main.temp} °F</p>
           <p>Humidity: ${location.list[27].main.humidity}%<p/>
           </div>
           <div id="currentForecast">
           <p>3/28/2021</p>
-          <img src="${location.list[35].weather[0].icon} alt="${location.list[3].weather[0].description}">
+          
           <p>Temp: ${location.list[35].main.temp} °F</p>
           <p>Humidity: ${location.list[35].main.humidity}%<p/>
           </div>
           `
 
-
+         let searchedCities = localStorage.setItem('savedCities', document.getElementById('cityList').value)
+            console.log(searchedCities)
          document.getElementById('search').value = '' 
       })
       .catch(err => console.error(err))
 })
+
+
+  // < img src = "${location.list[3].weather[0].icon} alt="${ location.list[3].weather[0].description } ">
