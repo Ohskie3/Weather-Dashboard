@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 #searching {
@@ -9,11 +9,14 @@ body {
   grid-row-start: 1;
   padding-left: 1em;
   padding-top: 1em;
+  padding-right: 2em;
+  min-width: 300px;
 }
 .btn-primary:hover {
   color: blue;
   background-color: white;
 }
+
 #searchedCities {
   grid-column-start: 1;
   grid-row-start: 2;
@@ -21,14 +24,26 @@ body {
 }
 
 #currentCity {
+  min-width: 400px;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 4;
+  padding-top: 3em;
 }
 #forecast {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 5;
   grid-row-end: 6;
+  padding-top: 2em;
+}
+#currentForecast {
+  background-color: rgb(41, 41, 230);
+  color: white;
+  max-width: 160px;
+  border-radius: 10px;
+  margin-left: 1em;
+  text-indent: .75em;
+  
 }
