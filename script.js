@@ -90,7 +90,7 @@ document.getElementById('searchBtn').addEventListener('click', event => {
           let currentTime = new Date()
 
           document.getElementById('currentCity').innerHTML = `
-            <h2>${location.city.name} ${currentTime.toDateString()} <img src="http://openweathermap.org/img/wn/${location.list[0].weather[0].icon}@2x.png"></h2>
+            <h2>${location.city.name}, ${currentTime.toDateString()} <img src="http://openweathermap.org/img/wn/${location.list[0].weather[0].icon}@2x.png"></h2>
             <p>Temperature: ${location.list[0].main.temp} °F</p>
             <p>Humidity: ${location.list[0].main.humidity}%</P>
             <p>Wind speed: ${location.list[0].wind.speed} MPH</P>
