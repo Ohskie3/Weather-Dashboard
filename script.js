@@ -88,13 +88,9 @@ document.getElementById('searchBtn').addEventListener('click', event => {
           let location = res.data
           console.log(location)
           let currentTime = new Date()
-          // let cityElem = document.createElement('li')
-          // cityElem.className = 'list-group-item'
-          // cityElem.textContent = document.getElementById('search').value
-          // document.getElementById('cityList').append(cityElem)
 
           document.getElementById('currentCity').innerHTML = `
-            <h2>${location.city.name} ${currentTime.toDateString()} <img src="${location.list[0].weather[0].icon}"></h2>
+            <h2>${location.city.name} ${currentTime.toDateString()} <img src="http://openweathermap.org/img/wn/${location.list[0].weather[0].icon}@2x.png"></h2>
             <p>Temperature: ${location.list[0].main.temp} °F</p>
             <p>Humidity: ${location.list[0].main.humidity}%</P>
             <p>Wind speed: ${location.list[0].wind.speed} MPH</P>
